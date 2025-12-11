@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    /* Output */
+    "outDir": "./dist",
+    "rootDir": "./src",
+
+    /* Module System */
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "types": ["node"],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+
+    /* Language Features */
+    "target": "ES2020",
+    "lib": ["ES2020"],
+    "skipLibCheck": true,
+
+    /* Strictness */
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": false,
+
+    /* JSX (future support for React UI if needed) */
+    "jsx": "react-jsx",
+
+    /* Path Alias (future scalable architecture) */
+    "baseUrl": "./src",
+    "paths": {
+      "@routes/*": ["routes/*"],
+      "@services/*": ["services/*"],
+      "@utils/*": ["utils/*"]
+    }
+  },
+
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}
