@@ -19,7 +19,7 @@ services:
     container_name: aks-frontend
     restart: always
     ports:
-      - "80:80"
+      - "8000:80"
     networks:
       - aks-net
     depends_on:
