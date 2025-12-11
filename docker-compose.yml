@@ -7,6 +7,8 @@ services:
     restart: always
     ports:
       - "4000:4000" 
+    env_file:
+      - cortix-server/.env
     networks:
       - aks-net
 
