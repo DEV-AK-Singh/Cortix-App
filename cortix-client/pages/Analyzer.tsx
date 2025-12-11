@@ -4,12 +4,12 @@ import SummaryCard from "../components/SummaryCard";
 import InfraCard from "../components/InfraCard";
 import { useApi } from "../hooks/useApi";
 import { AlertCircle } from "lucide-react";
-import filesData from "../dummyData/files-data.json";
-import infraData from "../dummyData/infra-data.json";
+// import filesData from "../dummyData/files-data.json";
+// import infraData from "../dummyData/infra-data.json";
 
 const Analyzer: React.FC = () => {
   let { data, loading, error, execute } = useApi(); 
-  
+
   const [step, setStep] = React.useState("Start");
 
   const handleSearch = async (repoPath: string) => {
@@ -19,31 +19,69 @@ const Analyzer: React.FC = () => {
         "Content-Type": "application/json",
       },
       body: { repoUrl: repoPath },
-    }).then((res) => {
-      console.log(res);
-      setStep("Analyze");
-    }).catch((err) => {
-      console.error(err);
-    });
+    })
+      .then((res) => {
+        console.log(res);
+        setStep("Analyze");
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
-  const handleGenerate = async () => { 
+  const handleGenerate = async () => {
     execute("/api/infra-gen", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: { repoMeta: data },
-    }).then((res) => { 
-      console.log(res);
-      setStep("Generate");
-    }).catch((err) => {
-      console.error(err);
-    });
+    })
+      .then((res) => {
+        console.log(res);
+        setStep("Generate");
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   const handleDownload = async () => {
-    alert("Downloading...");
+    const response = await fetch("/api/infra-export", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+          dockerfile: data.generated.dockerfile,
+          docker_compose: data.generated.docker_compose,
+          infra_bash: data.generated.infra_bash
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to generate infra files");
+    }
+
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+
+    // Use server filename (folder_in_timestamp.zip)
+    const contentDisposition = response.headers.get("Content-Disposition");
+    let filename = "infra.zip";
+
+    if (contentDisposition) {
+      const match = contentDisposition.match(/filename=\"(.+)\"/);
+      if (match) filename = match[1];
+    }
+
+    a.download = filename;
+    a.click();
+
+    window.URL.revokeObjectURL(url);
   };
 
   return (
