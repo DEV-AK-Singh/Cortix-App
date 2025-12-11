@@ -19,8 +19,12 @@ const Analyzer: React.FC = () => {
         "Content-Type": "application/json",
       },
       body: { repoUrl: repoPath },
+    }).then((res) => {
+      console.log(res);
+      setStep("Analyze");
+    }).catch((err) => {
+      console.error(err);
     });
-    setStep("Analyze");
   };
 
   const handleGenerate = async () => { 
@@ -31,6 +35,7 @@ const Analyzer: React.FC = () => {
       },
       body: { repoMeta: data },
     }).then((res) => { 
+      console.log(res);
       setStep("Generate");
     }).catch((err) => {
       console.error(err);
