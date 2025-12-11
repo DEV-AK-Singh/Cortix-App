@@ -1,0 +1,28 @@
+services:
+  backend:
+    build:
+      context: ./cortix-server
+      dockerfile: Dockerfile
+    container_name: aks-backend
+    restart: always
+    ports:
+      - "4000:4000" 
+    networks:
+      - aks-net
+
+  frontend:
+    build:
+      context: ./cortix-client
+      dockerfile: Dockerfile
+    container_name: aks-frontend
+    restart: always
+    ports:
+      - "80:80"
+    networks:
+      - aks-net
+    depends_on:
+      - backend
+
+networks:
+  aks-net:
+    driver: bridge

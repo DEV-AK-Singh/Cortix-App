@@ -88,7 +88,7 @@ const Analyzer: React.FC = () => {
   const { data, loading, error, execute } = useApi();
 
   const handleSearch = async (repoPath: string) => { 
-    execute("http://localhost:5000/analyze", {
+    execute("/api/analyze", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -7,7 +7,14 @@ export default defineConfig(({ mode }) => {
       server: {
         port: 3000,
         host: 'localhost',
-        open: true
+        open: true,
+        proxy: {
+          '/api': {
+            target: 'http://localhost:5000/api',
+            changeOrigin: true,
+            rewrite: (path) => path.replace(/^\/api/, '')
+          }
+        }
       },
       plugins: [react()],
       define: {
