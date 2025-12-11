@@ -456,7 +456,7 @@ const SummaryCard: React.FC<SummaryCardProps> = ({ data }) => {
 
             {/* Legend */}
             <div className="w-full space-y-3 mt-4 px-2">
-              {chartData.slice(0, 5).map((item, index) => (
+              {chartData.sort((a, b) => b.value - a.value).slice(0, 5).map((item, index) => (
                 <div
                   key={item.name}
                   className="flex justify-between items-center text-xs group cursor-default"

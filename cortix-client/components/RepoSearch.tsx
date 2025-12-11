@@ -58,7 +58,7 @@ const RepoSearch: React.FC<RepoSearchProps> = ({ onSearch, loading }) => {
       </div>
 
       {/* Search Interface */}
-      <form onSubmit={handleSubmit} className="w-full max-w-xl relative group mx-auto">
+      <form onSubmit={handleSubmit} className="w-full max-w-2xl relative group mx-auto">
         <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 via-cyan-500 to-purple-600 rounded-xl blur opacity-20 group-hover:opacity-50 transition duration-500"></div>
         
         <div className="relative flex items-center bg-white dark:bg-[#0a0a0a] rounded-xl p-2 shadow-xl dark:shadow-2xl border border-gray-200 dark:border-white/10 transition-colors duration-300">
@@ -72,7 +72,7 @@ const RepoSearch: React.FC<RepoSearchProps> = ({ onSearch, loading }) => {
             onChange={(e) => setInputValue(e.target.value)}
             placeholder={placeholderText}
             disabled={loading}
-            className="flex-1 bg-transparent border-none outline-none text-lg text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 font-mono h-12 transition-colors duration-300"
+            className="flex-1 bg-transparent border-none outline-none text-base text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 font-mono h-12 transition-colors duration-300"
           />
           
           <button
