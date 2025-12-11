@@ -216,9 +216,7 @@ const SummaryCard: React.FC<SummaryCardProps> = ({ data }) => {
       value: parseFloat(String(value).replace("%", "")),
       count: metadata.languageSummary.extensions[key]
     })
-  );
-
-  console.log(chartData);
+  ); 
 
   const techStack = {
     frontend: Object.entries(metadata.frontend),
