@@ -8,6 +8,7 @@ import {
   X,
   LogOut,
   User as UserIcon,
+  Terminal,
 } from "lucide-react";
 import { useAuth } from "../contexts/AuthContext";
 
@@ -204,9 +205,10 @@ const Layout: React.FC<LayoutProps> = ({ children, isDark, setIsDark }) => {
               </Link>
               <Link
                 to="/analyzer"
-                className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all shadow-lg shadow-indigo-500/25"
+                className="flex items-center bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all shadow-lg shadow-indigo-500/25"
               >
-                Launch Console
+                <Terminal className="w-4 h-4 mr-1" />
+                Console
               </Link>
             </div>
           )}
