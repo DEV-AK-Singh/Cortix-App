@@ -2,12 +2,57 @@
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cortix - GitHub Repo Analyzer</title>
+    <title>Cortix – AI DevOps Automation Platform</title>
+    <!-- SEO Meta Description -->
+    <meta
+      name="description"
+      content="Cortix is an AI-powered DevOps automation platform that analyzes any GitHub repository and automatically generates Dockerfiles, YAML configs, CI/CD pipelines, and cloud-ready infrastructure."
+    />
+    <!-- Keywords -->
+    <meta
+      name="keywords"
+      content="Cortix, DevOps AI, DevOps automation, AI DevOps, GitHub analysis AI, Dockerfile generator, YAML generator, CI/CD generator, cloud automation, AI developer tools, infra automation, deployment automation, Gemini 2.5 Flash"
+    />
+    <!-- Author -->
+    <meta name="author" content="Cortix Team" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://cortix.space" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Cortix – AI DevOps Automation Platform"
+    />
+    <meta
+      property="og:description"
+      content="Paste any GitHub repo → Cortix analyzes the code → generates Dockerfile, YAML, CI/CD, and setup scripts automatically."
+    />
+    <meta property="og:image" content="https://cortix.space/cortixLogo.png" />
+    <meta property="og:url" content="https://cortix.space" />
+    <meta property="og:site_name" content="Cortix" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Cortix – Autonomous AI DevOps Architect"
+    />
+    <meta
+      name="twitter:description"
+      content="Turn any GitHub repo into production-ready infrastructure with AI."
+    />
+    <meta name="twitter:image" content="https://cortix.space/cortixLogo.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/cortixLogo.png" type="image/png" />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
-        darkMode: 'class',
+        darkMode: "class",
         theme: {
           extend: {
             colors: {
@@ -16,15 +61,15 @@
               ring: "hsl(var(--ring))",
               background: "hsl(var(--background))",
               foreground: "hsl(var(--foreground))",
-            }
-          }
-        }
-      }
+            },
+          },
+        },
+      };
     </script>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
       body {
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter", sans-serif;
         transition: background-color 0.3s, color 0.3s;
       }
       /* Custom Scrollbar */
@@ -42,43 +87,53 @@
       ::-webkit-scrollbar-thumb:hover {
         background: #6b7280;
       }
-      
+
       /* Animations */
       @keyframes fade-in {
-        from { opacity: 0; }
-        to { opacity: 1; }
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
       }
       .animate-fade-in {
         animation: fade-in 0.5s ease-out forwards;
       }
-      
+
       @keyframes fade-in-up {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
       .animate-fade-in-up {
         animation: fade-in-up 0.6s ease-out forwards;
       }
     </style>
     <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@18.2.0?dev",
-    "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime?dev",
-    "react-dom": "https://esm.sh/react-dom@18.2.0?dev&deps=react@18.2.0",
-    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client?dev&deps=react@18.2.0",
-    "react-router-dom": "https://esm.sh/react-router-dom@6.22.3?dev&deps=react@18.2.0,react-dom@18.2.0",
-    "prop-types": "https://esm.sh/prop-types@15.8.1?dev",
-    "lucide-react": "https://esm.sh/lucide-react@0.292.0?dev&deps=react@18.2.0",
-    "recharts": "https://esm.sh/recharts@2.12.3?dev&deps=react@18.2.0,react-dom@18.2.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.1/",
-    "react/": "https://esm.sh/react@^19.2.1/"
-  }
-}
-</script>
-  <link rel="stylesheet" href="/index.css">
-</head>
-  <body>
+      {
+        "imports": {
+          "react": "https://esm.sh/react@18.2.0?dev",
+          "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime?dev",
+          "react-dom": "https://esm.sh/react-dom@18.2.0?dev&deps=react@18.2.0",
+          "react-dom/client": "https://esm.sh/react-dom@18.2.0/client?dev&deps=react@18.2.0",
+          "react-router-dom": "https://esm.sh/react-router-dom@6.22.3?dev&deps=react@18.2.0,react-dom@18.2.0",
+          "prop-types": "https://esm.sh/prop-types@15.8.1?dev",
+          "lucide-react": "https://esm.sh/lucide-react@0.292.0?dev&deps=react@18.2.0",
+          "recharts": "https://esm.sh/recharts@2.12.3?dev&deps=react@18.2.0,react-dom@18.2.0",
+          "react-dom/": "https://esm.sh/react-dom@^19.2.1/",
+          "react/": "https://esm.sh/react@^19.2.1/"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body class="dark:bg-black bg-white">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>
