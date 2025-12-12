@@ -70,8 +70,9 @@ const RepoSearch: React.FC<RepoSearchProps> = ({
             <span className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-indigo-500 animate-pulse mb-2"></span>
           </h1>
 
-          <p className="text-gray-600 dark:text-gray-500 max-w-md mx-auto text-sm md:text-base font-light tracking-wide transition-colors duration-300">
-            Advanced Repository Intelligence & Visualization Engine
+          <p className="text-gray-600 dark:text-gray-500 max-w-lg mx-auto text-sm md:text-base font-light tracking-wide transition-colors duration-300 leading-relaxed">
+            Your code is the blueprint. Cortix is the builder. <br/>
+            Paste a link to see your infrastructure visualize in real-time.
           </p>
         </div>
       </div>
